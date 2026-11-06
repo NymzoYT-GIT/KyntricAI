@@ -1,172 +1,517 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#080b14">
-  <meta name="description" content="KyntricAI - Your intelligent AI platform.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>KyntricAI — Your AI, Your Intelligence</title>
+    <title>KyntricAI — Learn. Code. Build. Master.</title>
 
-  <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Learn programming with interactive courses, coding challenges, and an AI-powered coding tutor.">
+
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="js/courses.js" defer></script>
+    <script src="js/lessons.js" defer></script>
+    <script src="js/progress.js" defer></script>
+    <script src="js/auth.js" defer></script>
+    <script src="app.js" defer></script>
 </head>
 
 <body>
 
-  <div class="app">
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
 
-    <aside class="sidebar">
+        <a href="index.html" class="brand">
+            <img src="assets/logo.svg" alt="KyntricAI Logo">
+            <span>KyntricAI</span>
+        </a>
 
-      <div class="brand">
-        <div class="brand-icon">K</div>
-        <div>
-          <h2>KyntricAI</h2>
-          <span>INTELLIGENCE PLATFORM</span>
+        <div class="sidebar-section">
+            <p class="sidebar-label">LEARNING</p>
+
+            <a href="#home" class="nav-link active">
+                <span>⌂</span> Home
+            </a>
+
+            <a href="#courses" class="nav-link">
+                <span>▤</span> Explore Courses
+            </a>
+
+            <a href="#learning-paths" class="nav-link">
+                <span>⌁</span> Learning Paths
+            </a>
+
+            <a href="#playground" class="nav-link">
+                <span>⌨</span> Code Playground
+            </a>
         </div>
-      </div>
 
-      <button class="new-chat" id="new-chat">
-        <span>＋</span> New conversation
-      </button>
+        <div class="sidebar-section">
+            <p class="sidebar-label">AI LEARNING</p>
 
-      <div class="nav-section">
-        <p>WORKSPACE</p>
+            <a href="#ai-tutor" class="nav-link">
+                <span>✧</span> AI Coding Tutor
+            </a>
 
-        <button class="nav-item active" data-page="chat">
-          ◈ <span>AI Chat</span>
-        </button>
-
-        <button class="nav-item" data-page="studio">
-          ✧ <span>AI Studio</span>
-        </button>
-
-        <button class="nav-item" data-page="agents">
-          ⬡ <span>AI Agents</span>
-        </button>
-
-        <button class="nav-item" data-page="memory">
-          ◉ <span>Memory Center</span>
-        </button>
-      </div>
-
-      <div class="nav-section">
-        <p>TOOLS</p>
-
-        <button class="nav-item" data-page="images">
-          ▧ <span>Image AI</span>
-        </button>
-
-        <button class="nav-item" data-page="files">
-          ▤ <span>File Analysis</span>
-        </button>
-
-        <button class="nav-item" data-page="voice">
-          ♬ <span>Voice AI</span>
-        </button>
-      </div>
-
-      <div class="sidebar-bottom">
-        <button class="nav-item" data-page="settings">
-          ⚙ <span>Settings</span>
-        </button>
-
-        <div class="account">
-          <div class="avatar">K</div>
-          <div>
-            <strong>KyntricAI User</strong>
-            <span>Personal workspace</span>
-          </div>
+            <a href="#challenges" class="nav-link">
+                <span>⚡</span> Challenges
+            </a>
         </div>
-      </div>
+
+        <div class="sidebar-section">
+            <p class="sidebar-label">YOUR ACCOUNT</p>
+
+            <a href="#dashboard" class="nav-link">
+                <span>▦</span> Dashboard
+            </a>
+
+            <a href="#achievements" class="nav-link">
+                <span>🏆</span> Achievements
+            </a>
+
+            <a href="#profile" class="nav-link">
+                <span>◉</span> Profile
+            </a>
+        </div>
+
+        <div class="sidebar-bottom">
+            <div class="free-plan">
+                <span class="plan-icon">✦</span>
+                <div>
+                    <strong>Free Learning</strong>
+                    <small>Start learning today</small>
+                </div>
+            </div>
+        </div>
 
     </aside>
 
-    <main class="main">
 
-      <header class="topbar">
-        <button id="mobile-menu" class="mobile-menu">☰</button>
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
 
-        <div class="breadcrumb">
-          KyntricAI <span>/</span> <strong id="page-title">AI Chat</strong>
-        </div>
+        <!-- TOP BAR -->
+        <header class="topbar">
 
-        <div class="top-actions">
-          <span class="status">
-            <i></i> SYSTEM ONLINE
-          </span>
-          <button class="icon-button" title="Notifications">♧</button>
-        </div>
-      </header>
-
-      <section class="workspace" id="workspace">
-
-        <div class="welcome">
-          <div class="welcome-icon">✧</div>
-
-          <span class="eyebrow">YOUR INTELLIGENCE. REIMAGINED.</span>
-
-          <h1>Welcome to <span>KyntricAI</span></h1>
-
-          <p>
-            Your personal AI ecosystem.
-            Explore ideas, create, discover and build something extraordinary.
-          </p>
-
-          <div class="suggestions">
-            <button data-prompt="Explain how artificial intelligence works.">
-              <span>✧</span>
-              Explain artificial intelligence
+            <button class="mobile-menu" id="mobile-menu" aria-label="Open menu">
+                ☰
             </button>
 
-            <button data-prompt="Help me brainstorm a creative project.">
-              <span>◇</span>
-              Brainstorm an idea
-            </button>
+            <div class="breadcrumb">
+                KyntricAI <span>/</span> Academy
+            </div>
 
-            <button data-prompt="Help me write some JavaScript code.">
-              <span>⌘</span>
-              Write some code
-            </button>
+            <div class="topbar-actions">
+                <button class="icon-button" aria-label="Notifications">
+                    ♧
+                </button>
 
-            <button data-prompt="Teach me something interesting today.">
-              <span>◎</span>
-              Teach me something
-            </button>
-          </div>
-        </div>
+                <a href="#profile" class="profile-button">
+                    <span class="profile-avatar">S</span>
+                    <span>Student</span>
+                </a>
+            </div>
 
-      </section>
+        </header>
 
-      <footer class="chat-footer">
 
-        <div class="composer">
+        <!-- HOME -->
+        <section class="page-section" id="home">
 
-          <button class="attach-button" title="Attachments">＋</button>
+            <div class="welcome-section">
 
-          <textarea
-            id="message-input"
-            placeholder="Message KyntricAI..."
-            rows="1"
-          ></textarea>
+                <div class="welcome-text">
+                    <span class="eyebrow">YOUR PROGRAMMING JOURNEY STARTS HERE</span>
 
-          <button class="send-button" id="send-button">
-            ↑
-          </button>
+                    <h1>Learn to code.<br>
+                        <span>Build anything.</span>
+                    </h1>
 
-        </div>
+                    <p>
+                        From your very first line of code to advanced software
+                        development, KyntricAI helps you learn, practice, and grow.
+                    </p>
 
-        <p class="disclaimer">
-          KyntricAI can make mistakes. Verify important information.
-        </p>
+                    <div class="welcome-actions">
+                        <a href="#courses" class="primary-button">
+                            Explore Courses →
+                        </a>
 
-      </footer>
+                        <a href="#ai-tutor" class="secondary-button">
+                            Meet Your AI Tutor
+                        </a>
+                    </div>
+                </div>
+
+                <div class="welcome-graphic">
+                    <div class="graphic-glow"></div>
+
+                    <div class="code-window">
+                        <div class="window-header">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <small>your-first-program.js</small>
+                        </div>
+
+                        <pre><code><span class="code-purple">const</span> future = {
+  skills: <span class="code-green">"Programming"</span>,
+  creativity: <span class="code-green">true</span>,
+  possibilities: <span class="code-green">"Unlimited"</span>
+};
+
+<span class="code-blue">console</span>.log(
+  <span class="code-green">"Hello, Developer!"</span>
+);</code></pre>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- LEARNING STATS -->
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <span class="stat-icon">⚡</span>
+                    <div>
+                        <strong>0 XP</strong>
+                        <small>Total Experience</small>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-icon">▤</span>
+                    <div>
+                        <strong>0</strong>
+                        <small>Completed Lessons</small>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-icon">🏆</span>
+                    <div>
+                        <strong>0</strong>
+                        <small>Achievements</small>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-icon">🔥</span>
+                    <div>
+                        <strong>0 Days</strong>
+                        <small>Learning Streak</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- COURSES -->
+        <section class="page-section" id="courses">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">DISCOVER YOUR POTENTIAL</span>
+                    <h2>Explore Programming</h2>
+                    <p>Find a subject that interests you and start learning.</p>
+                </div>
+
+                <a href="#all-courses" class="text-link">
+                    View all courses →
+                </a>
+            </div>
+
+
+            <div class="category-grid">
+
+                <a href="#all-courses" class="category-card web-category">
+                    <span class="category-icon">🌐</span>
+                    <h3>Web Development</h3>
+                    <p>Build websites and web applications.</p>
+                    <span class="category-footer">Explore category →</span>
+                </a>
+
+                <a href="#all-courses" class="category-card game-category">
+                    <span class="category-icon">🎮</span>
+                    <h3>Game Development</h3>
+                    <p>Create games and interactive worlds.</p>
+                    <span class="category-footer">Explore category →</span>
+                </a>
+
+                <a href="#all-courses" class="category-card ai-category">
+                    <span class="category-icon">🧠</span>
+                    <h3>Artificial Intelligence</h3>
+                    <p>Explore AI and machine learning.</p>
+                    <span class="category-footer">Explore category →</span>
+                </a>
+
+                <a href="#all-courses" class="category-card data-category">
+                    <span class="category-icon">🗄️</span>
+                    <h3>Databases & Backend</h3>
+                    <p>Build systems that power applications.</p>
+                    <span class="category-footer">Explore category →</span>
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- FEATURED COURSES -->
+        <section class="page-section" id="all-courses">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">START LEARNING</span>
+                    <h2>Featured Courses</h2>
+                    <p>Start with the fundamentals and build your skills.</p>
+                </div>
+            </div>
+
+            <div class="course-grid" id="course-list">
+
+                <article class="course-card">
+                    <div class="course-art html-art">HTML</div>
+                    <div class="course-info">
+                        <span class="course-tag">WEB DEVELOPMENT</span>
+                        <h3>HTML for Beginners</h3>
+                        <p>Learn how to build the structure of websites.</p>
+                        <div class="course-meta">
+                            <span>Beginner</span>
+                            <span>15 Lessons</span>
+                        </div>
+                        <span class="free-label">FREE</span>
+                    </div>
+                </article>
+
+                <article class="course-card">
+                    <div class="course-art css-art">CSS</div>
+                    <div class="course-info">
+                        <span class="course-tag">WEB DEVELOPMENT</span>
+                        <h3>CSS for Beginners</h3>
+                        <p>Make websites beautiful with styling and layouts.</p>
+                        <div class="course-meta">
+                            <span>Beginner</span>
+                            <span>15 Lessons</span>
+                        </div>
+                        <span class="free-label">FREE</span>
+                    </div>
+                </article>
+
+                <article class="course-card">
+                    <div class="course-art js-art">JS</div>
+                    <div class="course-info">
+                        <span class="course-tag">PROGRAMMING</span>
+                        <h3>JavaScript Fundamentals</h3>
+                        <p>Make websites interactive with JavaScript.</p>
+                        <div class="course-meta">
+                            <span>Beginner</span>
+                            <span>20 Lessons</span>
+                        </div>
+                        <span class="free-label">FREE</span>
+                    </div>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- LEARNING PATHS -->
+        <section class="page-section" id="learning-paths">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">YOUR FUTURE CAREER</span>
+                    <h2>Learning Paths</h2>
+                    <p>Follow a structured journey toward mastering a skill.</p>
+                </div>
+            </div>
+
+            <div class="path-card">
+                <div>
+                    <span class="path-icon">💻</span>
+                    <h3>Full-Stack Developer</h3>
+                    <p>Learn frontend, backend, databases, and deployment.</p>
+                </div>
+                <span class="path-status">COMING SOON</span>
+            </div>
+
+            <div class="path-card">
+                <div>
+                    <span class="path-icon">🎮</span>
+                    <h3>Game Developer</h3>
+                    <p>Learn programming, game design, and interactive 3D worlds.</p>
+                </div>
+                <span class="path-status">COMING SOON</span>
+            </div>
+
+            <div class="path-card">
+                <div>
+                    <span class="path-icon">🤖</span>
+                    <h3>AI Developer</h3>
+                    <p>Explore artificial intelligence, machine learning, and data.</p>
+                </div>
+                <span class="path-status">COMING SOON</span>
+            </div>
+
+        </section>
+
+
+        <!-- PLAYGROUND -->
+        <section class="page-section feature-section" id="playground">
+
+            <div class="feature-icon">⌨️</div>
+
+            <div>
+                <span class="eyebrow">PRACTICE YOUR SKILLS</span>
+                <h2>Coding Playground</h2>
+                <p>
+                    Write code, experiment with ideas, and see what you can create
+                    in your own browser-based coding workspace.
+                </p>
+                <span class="coming-soon">PLAYGROUND COMING SOON</span>
+            </div>
+
+        </section>
+
+
+        <!-- AI TUTOR -->
+        <section class="page-section feature-section tutor-section" id="ai-tutor">
+
+            <div class="feature-icon">✧</div>
+
+            <div>
+                <span class="eyebrow">YOUR PERSONAL LEARNING ASSISTANT</span>
+                <h2>Meet Your AI Coding Tutor</h2>
+                <p>
+                    Get explanations, debugging assistance, coding hints,
+                    and guidance whenever you need help.
+                </p>
+                <span class="coming-soon">AI TUTOR COMING SOON</span>
+            </div>
+
+        </section>
+
+
+        <!-- CHALLENGES -->
+        <section class="page-section" id="challenges">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">LEARN BY DOING</span>
+                    <h2>Coding Challenges</h2>
+                    <p>Test your knowledge with practical programming exercises.</p>
+                </div>
+            </div>
+
+            <div class="challenge-card">
+                <span class="challenge-icon">⚡</span>
+                <div>
+                    <h3>Your first coding challenge</h3>
+                    <p>Coming soon: put your programming knowledge to the test.</p>
+                </div>
+                <span class="coming-soon">COMING SOON</span>
+            </div>
+
+        </section>
+
+
+        <!-- ACHIEVEMENTS -->
+        <section class="page-section" id="achievements">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">CELEBRATE YOUR PROGRESS</span>
+                    <h2>Achievements</h2>
+                    <p>Earn rewards as you learn and improve.</p>
+                </div>
+            </div>
+
+            <div class="achievement-grid">
+                <div class="achievement-card">
+                    <span>🌱</span>
+                    <strong>First Steps</strong>
+                    <small>Complete your first lesson</small>
+                </div>
+
+                <div class="achievement-card">
+                    <span>💡</span>
+                    <strong>Quick Learner</strong>
+                    <small>Complete five lessons</small>
+                </div>
+
+                <div class="achievement-card">
+                    <span>🔥</span>
+                    <strong>Consistent Coder</strong>
+                    <small>Build a seven-day streak</small>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- PROFILE -->
+        <section class="page-section" id="profile">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">YOUR ACCOUNT</span>
+                    <h2>Student Profile</h2>
+                    <p>Your personal learning space.</p>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <div class="large-avatar">S</div>
+                <div>
+                    <h3>Welcome, Student!</h3>
+                    <p>Your KyntricAI learning journey starts here.</p>
+                    <span class="profile-level">LEVEL 1 · BEGINNER</span>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- DASHBOARD -->
+        <section class="page-section" id="dashboard">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">YOUR LEARNING OVERVIEW</span>
+                    <h2>Student Dashboard</h2>
+                    <p>Your courses and learning activity will appear here.</p>
+                </div>
+            </div>
+
+            <div class="empty-state">
+                <span>📚</span>
+                <h3>Your journey starts today</h3>
+                <p>Enroll in a course to begin tracking your progress.</p>
+                <a href="#courses" class="primary-button">Find a Course</a>
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="brand footer-brand">
+                <img src="assets/logo.svg" alt="">
+                <span>KyntricAI</span>
+            </div>
+
+            <p>Learn. Code. Build. Master.</p>
+            <small>© 2026 KyntricAI. All rights reserved.</small>
+        </footer>
 
     </main>
-
-  </div>
-
-  <script src="app.js"></script>
 
 </body>
 </html>
