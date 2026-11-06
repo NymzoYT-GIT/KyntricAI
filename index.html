@@ -1,1 +1,172 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b14">
+  <meta name="description" content="KyntricAI - Your intelligent AI platform.">
+
+  <title>KyntricAI — Your AI, Your Intelligence</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="app">
+
+    <aside class="sidebar">
+
+      <div class="brand">
+        <div class="brand-icon">K</div>
+        <div>
+          <h2>KyntricAI</h2>
+          <span>INTELLIGENCE PLATFORM</span>
+        </div>
+      </div>
+
+      <button class="new-chat" id="new-chat">
+        <span>＋</span> New conversation
+      </button>
+
+      <div class="nav-section">
+        <p>WORKSPACE</p>
+
+        <button class="nav-item active" data-page="chat">
+          ◈ <span>AI Chat</span>
+        </button>
+
+        <button class="nav-item" data-page="studio">
+          ✧ <span>AI Studio</span>
+        </button>
+
+        <button class="nav-item" data-page="agents">
+          ⬡ <span>AI Agents</span>
+        </button>
+
+        <button class="nav-item" data-page="memory">
+          ◉ <span>Memory Center</span>
+        </button>
+      </div>
+
+      <div class="nav-section">
+        <p>TOOLS</p>
+
+        <button class="nav-item" data-page="images">
+          ▧ <span>Image AI</span>
+        </button>
+
+        <button class="nav-item" data-page="files">
+          ▤ <span>File Analysis</span>
+        </button>
+
+        <button class="nav-item" data-page="voice">
+          ♬ <span>Voice AI</span>
+        </button>
+      </div>
+
+      <div class="sidebar-bottom">
+        <button class="nav-item" data-page="settings">
+          ⚙ <span>Settings</span>
+        </button>
+
+        <div class="account">
+          <div class="avatar">K</div>
+          <div>
+            <strong>KyntricAI User</strong>
+            <span>Personal workspace</span>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+
+    <main class="main">
+
+      <header class="topbar">
+        <button id="mobile-menu" class="mobile-menu">☰</button>
+
+        <div class="breadcrumb">
+          KyntricAI <span>/</span> <strong id="page-title">AI Chat</strong>
+        </div>
+
+        <div class="top-actions">
+          <span class="status">
+            <i></i> SYSTEM ONLINE
+          </span>
+          <button class="icon-button" title="Notifications">♧</button>
+        </div>
+      </header>
+
+      <section class="workspace" id="workspace">
+
+        <div class="welcome">
+          <div class="welcome-icon">✧</div>
+
+          <span class="eyebrow">YOUR INTELLIGENCE. REIMAGINED.</span>
+
+          <h1>Welcome to <span>KyntricAI</span></h1>
+
+          <p>
+            Your personal AI ecosystem.
+            Explore ideas, create, discover and build something extraordinary.
+          </p>
+
+          <div class="suggestions">
+            <button data-prompt="Explain how artificial intelligence works.">
+              <span>✧</span>
+              Explain artificial intelligence
+            </button>
+
+            <button data-prompt="Help me brainstorm a creative project.">
+              <span>◇</span>
+              Brainstorm an idea
+            </button>
+
+            <button data-prompt="Help me write some JavaScript code.">
+              <span>⌘</span>
+              Write some code
+            </button>
+
+            <button data-prompt="Teach me something interesting today.">
+              <span>◎</span>
+              Teach me something
+            </button>
+          </div>
+        </div>
+
+      </section>
+
+      <footer class="chat-footer">
+
+        <div class="composer">
+
+          <button class="attach-button" title="Attachments">＋</button>
+
+          <textarea
+            id="message-input"
+            placeholder="Message KyntricAI..."
+            rows="1"
+          ></textarea>
+
+          <button class="send-button" id="send-button">
+            ↑
+          </button>
+
+        </div>
+
+        <p class="disclaimer">
+          KyntricAI can make mistakes. Verify important information.
+        </p>
+
+      </footer>
+
+    </main>
+
+  </div>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
